@@ -4,13 +4,14 @@ const initialState = {
     cartData: []
 }
 export default function cartItem(state = initialState, action) {
+    //console.log("Reducer: ", state)
 
     switch (action.type) {
         case "ADD_TO_CART":
-            return {
+            return [
                 ...state,
-                cartData: action.data
-            }
+                { cartData: action.data }
+            ]
             break;
         default:
             return state

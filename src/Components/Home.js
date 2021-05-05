@@ -4,12 +4,13 @@ function Home(props) {
     return ( <
         div >
         <
+        h1 > Home Component < /h1> <
         div className = "add-to-cart" >
+
         <
         img src = "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-r1.jpg" / >
         <
         /div> <
-        h1 > Home Component < /h1> <
         div className = "cart-wrapper" >
         <
         div className = "img-wrapper item" >
@@ -24,7 +25,9 @@ function Home(props) {
         /div> <
         div className = "btn-wrapper item" >
         <
-        button > Add to cart < /button> <
+        button onClick = {
+            () => { props.addToCartHandler({ pice: 1000, name: 'iPhone 12' }) }
+        } > Add to cart < /button> <
         /div> <
         /div> <
         /div>

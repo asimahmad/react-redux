@@ -1,9 +1,9 @@
-import { connet } from 'react-redux'
+import { connect } from 'react-redux'
 import Home from '../Components/Home'
 import { addToCart } from '../Services/Actions/action'
 
 const mapStateToProps = state => ({
-
+    cartData: state.cartItems
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -11,6 +11,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connet(mapDispatchToProps, mapStateToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
 
 // export default Home
