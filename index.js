@@ -1,11 +1,13 @@
 const redux = require('redux')
 const createStore = redux.createStore
+const combineReducers = redux.combineReducers
 
 console.log("from index.js");
 
 
 const BUY_CAKE = 'BUY_CAKE';
 const BUY_ICE = 'BUY_ICE';
+const BUY_PIZZA = 'BUY_PIZZA';
 
 function buyCake() {
     return {
@@ -21,6 +23,12 @@ function buyIce() {
     }
 }
 
+function buyPizza() {
+    return {
+        type: BUY_PIZZA,
+        info: "First Redux action"
+    }
+}
 // (prevState, action) => newState
 
 // state should be an object
@@ -29,7 +37,11 @@ const intialState = {
     numOfIces: 20
 }
 
-const reducer = (state = intialState, action) => {
+const initialPizzaState = {
+    numOfPizza: 15
+}
+
+const reducers = (state = intialState, action) => {
     switch (action.type) {
         case BUY_CAKE:
             return {
@@ -48,16 +60,36 @@ const reducer = (state = intialState, action) => {
 }
 
 
-const store = createStore(reducer)
+const pizzaReducer = (state = initialPizzaState, action) => {
+    switch (action.type) {
+        case BUY_PIZZA:
+            return {
+                ...state,
+                numOfPizza: state.numOfPizza - 1
+            }
+        default:
+            return state
+    }
+}
 
-console.log('Intial state ' + store.getState().numOfCakes)
-console.log('Intial state ' + store.getState().numOfIces)
+const root_reducer = combineReducers({
+    cake_ice: reducers,
+    pizza: pizzaReducer
+})
 
-const unsubscribe = store.subscribe(() => console.log("Updated state " + store.getState().numOfCakes + " " + store.getState().numOfIces))
+const store = createStore(root_reducer)
+
+console.log('Intial state ' + store.getState().cake_ice.numOfCakes)
+console.log('Intial state ' + store.getState().cake_ice.numOfCakes)
+console.log('Intial state ' + store.getState().pizza.numOfPizza)
+
+const unsubscribe = store.subscribe(() => console.log("Updated state " + store.getState().cake_ice.numOfCakes + " " + store.getState().cake_ice.numOfIces + " " + store.getState().pizza.numOfPizza))
 
 store.dispatch(buyCake());
 store.dispatch(buyCake());
 store.dispatch(buyCake());
 store.dispatch(buyIce());
 store.dispatch(buyIce());
+store.dispatch(buyPizza());
+store.dispatch(buyPizza());
 unsubscribe();
