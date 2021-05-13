@@ -1,6 +1,9 @@
 const redux = require('redux')
+const reduxLogger = require('redux-logger')
 const createStore = redux.createStore
 const combineReducers = redux.combineReducers
+const applyMiddleware = redux.applyMiddleware
+const logger = reduxLogger.createLogger()
 
 console.log("from index.js");
 
@@ -77,7 +80,7 @@ const root_reducer = combineReducers({
     pizza: pizzaReducer
 })
 
-const store = createStore(root_reducer)
+const store = createStore(root_reducer, applyMiddleware(logger))
 
 console.log('Intial state ' + store.getState().cake_ice.numOfCakes)
 console.log('Intial state ' + store.getState().cake_ice.numOfCakes)
