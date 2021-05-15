@@ -15,7 +15,7 @@ function IceCreamContainer(props) {
 
 const mapStateToProps = state => {
     return {
-        numOfIceCreams: state.iceCream.numOfIceCreams
+        numOfIceCreams: state.iceCream.numOfIceCreams // add iceCream key from root reducer only in here that's all.
     }
 }
 
