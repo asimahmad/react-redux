@@ -7,14 +7,14 @@ export const fetchUserRequest = () => {
     }
 }
 
-export const fetchUserSuccess = () => {
+export const fetchUserSuccess = users => {
     return {
         type: FETCH_USER_SUCCESS,
         payload: users
     }
 }
 
-export const fetchUserFailure = () => {
+export const fetchUserFailure = error => {
     return {
         type: FETCH_USER_FAILURE,
         payload: error
