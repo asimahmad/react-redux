@@ -15,7 +15,7 @@ function CakeContainer(props) {
 
 const mapStateToProps = state => {
     return {
-        numOfCakes: state.numOfCakes
+        numOfCakes: state.cake.numOfCakes
     }
 }
 
@@ -27,3 +27,6 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer)
     //export default CakeContainer
+
+
+// We can use hooks instead of connect in this cake shop container
