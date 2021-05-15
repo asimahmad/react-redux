@@ -13,8 +13,7 @@ function App() {
     return ( <
         Provider store = { store } >
         <
-        div className = "App" >
-        <
+        div className = "App" > { /* <ItemContainer cake="cake"/> */ } <
         ItemContainer cake / >
         <
         ItemContainer / >
