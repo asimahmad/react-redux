@@ -23,6 +23,26 @@ export const fetchUserFailure = error => {
 
 export const fetchUsers = () => {
     return (dispatch) => {
+
+        const body = {
+            records: [
+                { name: "Harper", username: "Mutt" },
+                { name: "Penny", username: "Mutt111", }
+            ]
+        };
+
+        axios({
+                method: 'post',
+                url: 'http://jsonplaceholder.typicode.com/users',
+                data: body,
+            })
+            .then((response) => {
+                console.log("POST SUCCESS  " + response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
         dispatch(fetchUserRequest)
         axios.get('http://jsonplaceholder.typicode.com/users')
             .then(response => {
