@@ -3,11 +3,11 @@ import { ADD_TO_CART } from '../constants'
 const initialState = {
     cartData: []
 }
-export default function cartItem(state = initialState, action) {
+export default function cartItem(state = [], action) {
     //console.log("Reducer: ", state)
 
     switch (action.type) {
-        case "ADD_TO_CART":
+        case ADD_TO_CART:
             return [
                 ...state,
                 { cartData: action.data }
