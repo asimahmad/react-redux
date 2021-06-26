@@ -11,11 +11,12 @@ import ItemContainer from './Components/ItemContainer'
 import UserContainer from './Components/UserContainer'
 
 function App() {
-    return ( <
-        Provider store = { store } >
-        <
-        div className = "App" > { /* <ItemContainer cake="cake"/> */ } <
-        UserContainer / > {
+    return ( 
+    <Provider store = { store }>
+        <div className = "App" > 
+        { /* <ItemContainer cake="cake"/> */ } 
+        <UserContainer /> 
+        {
             /* <ItemContainer cake />
                   <ItemContainer />
                   <NewCakeContainer/>
@@ -23,9 +24,9 @@ function App() {
                   <IceCreamContainer />
                   <HooksCakeContainer />
                   <CakeContainer /> */
-        } <
-        /div> <
-        /Provider>
+        } 
+        </div> 
+        </Provider>
     );
 }
 
